@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>凡客放大镜</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .left{
+            width: 400px;
+            height: 400px;
+            background:url("images/s.jpg") no-repeat;
+            margin: 20px;
+            border: 1px solid #000;
+            position: relative;
+            float: left;
+            cursor: crosshair;
+        }
+        .box{
+            width: 220px;
+            height: 200px;
+            background-color:#fff;
+            opacity: 0.3;
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: none;
+        }
+        .cover{
+            width: 400px;
+            height: 400px;
+            background-color: #fff;
+            opacity: 0;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .right{
+            width: 440px;
+            height: 400px;
+            border: 1px solid #000;
+            overflow: hidden;
+            position: relative;
+            /*left: 480px;*/
+            /*top: 20px;*/
+            float: left;
+            margin: 30px;
+            display: none;
+        }
+        .pic{
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+    </style>
+</head>
+<body>
+<div class="left">
+    <div class="box"></div>
+    <div class="cover"></div>
+</div>
+<div class="right">
+    <img src="images/b.jpg" alt="" class="pic">
+</div>
+<script>
+    var lef = document.getElementsByClassName('left')[0];
+    var box = document.getElementsByClassName('box')[0];
+    var rig = document.getElementsByClassName('right')[0];
+    var pic = document.getElementsByClassName('pic')[0];
+
+    lef.onmousemove = function (e) {
+        var ev = window.e || e;
+        // 获取鼠标的位置
+        var mX = ev.offsetX|| ev.layerX;
+        var mY = ev.offsetY|| ev.layerY;
+        // console.log(mX,mY);
+        var nX = mX - box.offsetWidth/2;
+        var nY = mY - box.offsetHeight/2;
+        if(nX<0){
+            nX = 0;
+        }
+        if(nX>180){
+            nX = 180;
+        }
+        if(nY<0){
+            nY = 0;
+        }
+        if(nY>200){
+            nY = 200;
+        }
+        box.style.left = nX + 'px';
+        box.style.top = nY + 'px';
+
+        pic.style.left = -2*nX +'px';
+        pic.style.top = -2*nY +'px';
+
+
+
+    }
+
+    lef.onmouseover = function (ev) {
+        box.style.display = 'block';
+        rig.style.display = 'block';
+
+    }
+    lef.onmouseout = function () {
+        box.style.display = 'none';
+        rig.style.display = 'none';
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>仿淘宝轮播图</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 500px;
+            height: 300px;
+            border: 1px solid #cccccc;
+            margin: 100px auto;
+        }
+        ul li{
+            list-style: none;
+            width: 100%;
+            height: 32px;
+            line-height: 32px;
+            border-bottom: 1px solid #cccccc;
+        }
+        .left,.right{
+            width: 99px;
+            float: left;
+            text-align: center;
+        }
+        .left li:last-child,.right li:last-child{
+            border-bottom: none;
+        }
+        .con{
+            width: 300px;
+            height: 300px;
+            float: left;
+            border-right: 1px solid #cccccc;
+            border-left: 1px solid #cccccc;
+            position: relative;
+        }
+        .con img{
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: none;
+        }
+        .current{
+            background-color: #ff0000;
+        }
+
+        
+    </style>
+</head>
+<body>
+<div class="box">
+    <ul class="left">
+        <li class="current">美食1</li>
+        <li>美食2</li>
+        <li>美食3</li>
+        <li>美食4</li>
+        <li>美食5</li>
+        <li>美食6</li>
+        <li>美食7</li>
+        <li>美食8</li>
+        <li>美食9</li>
+    </ul>
+    <div class="con">
+        <img style="display: block" src="images/img1.jpg" alt="">
+        <img src="images/img2.jpg" alt="">
+        <img src="images/img3.jpg" alt="">
+        <img src="images/img4.jpg" alt="">
+        <img src="images/img5.jpg" alt="">
+        <img src="images/img6.jpg" alt="">
+        <img src="images/img7.jpg" alt="">
+        <img src="images/img8.jpg" alt="">
+        <img src="images/img9.jpg" alt="">
+        <img src="images/img10.jpg" alt="">
+        <img src="images/img11.jpg" alt="">
+        <img src="images/img12.jpg" alt="">
+        <img src="images/img14.jpg" alt="">
+        <img src="images/img15.jpg" alt="">
+        <img src="images/img16.jpg" alt="">
+        <img src="images/img17.jpg" alt="">
+        <img src="images/img18.jpg" alt="">
+        <img src="images/img19.jpg" alt="">
+    </div>
+    <ul class="right">
+        <li>美食10</li>
+        <li>美食11</li>
+        <li>美食12</li>
+        <li>美食13</li>
+        <li>美食14</li>
+        <li>美食15</li>
+        <li>美食16</li>
+        <li>美食17</li>
+        <li>美食18</li>
+    </ul>
+</div>
+<script>
+    var ls = document.getElementsByTagName('li');
+    // var cu = document.getElementsByClassName('current')[0];
+    var img = document.getElementsByTagName('img');
+    var c=0;
+    setInterval(function () {
+        c++;
+        if(c==18){
+            c=0;
+        }
+        for(var i=0;i<ls.length;i++){
+            ls[i].className = '';
+            img[i].style.display = 'none';
+        }
+        ls[c].className = 'current';
+        img[c].style.display = 'block';
+    },1000)
+
+</script>
+</body>
+</html>

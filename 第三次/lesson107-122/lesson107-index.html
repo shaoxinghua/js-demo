@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>鲜花表白</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: #000000;
+        }
+        div{
+            width: 569px;
+            height: 327px;
+            line-height: 100px;
+            text-align: center;
+            color: #ff0000;
+            font-size: 100px;
+            margin: 100px auto;
+        }
+    </style>
+</head>
+<body>
+<div>5</div>
+<script>
+    var div = document.getElementsByTagName('div')[0];
+    var timer = setInterval(function () {
+        div.innerText --;
+        if(div.innerText ==0){
+            clearInterval(timer);
+            div.innerText ='';
+            var img = document.createElement('img');
+            img.src = 'images/flower.gif';
+            div.appendChild(img);
+        }
+
+    },1000)
+</script>
+</body>
+</html>

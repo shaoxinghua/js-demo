@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>获取选中的内容</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #word{
+            width: 200px;
+            margin: 100px;
+        }
+        /*#weibo-text{*/
+        /*    width: 150px;*/
+        /*    position: absolute;*/
+        /*    background-color: skyblue;*/
+        /*}*/
+
+        #weibo{
+            width: 20px;
+            height: 20px;
+            background:url("images/share.gif") no-repeat 0 0;
+            background-size: 20px 20px ;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<div id="word">贴吧即百度贴吧，是百度旗下独立品牌，全球最大的中文社区。贴吧的创意来自于百度首席执行官李彦宏：结合搜索引擎建立一个在线的交流平台，让那些对同一个话题感兴趣的人们聚集在一起，方便地展开交流和互相帮助。贴吧是一种基于关键词的主题交流社区，它与搜索紧密结合，准确把握用户需求，为兴趣而生。</div>
+<!--<div id="weibo-text"></div>-->
+<div id="weibo"></div>
+<script>
+    var wor = document.getElementById('word');
+    // var weibo = document.getElementById('weibo-text');
+    var weibo = document.getElementById('weibo');
+    var  selectedText;
+    wor.onmouseup = function (ev) {
+        var e = window.e || ev;
+        // // 取消冒泡
+        // if(event && event.stopPropagation){
+        //     event.stopPropagation();
+        // }else {
+        //     window.event.cancelBubble = true;
+        // }
+
+        // 获取选中的内容
+
+        if(window.getSelection){
+            selectedText = window.getSelection().toString();
+        }else {
+            selectedText = document.selection.createRange().text;
+        }
+
+      if(selectedText !==''){
+          // weibo.innerText =selectedText;
+          weibo.style.display = 'block';
+          weibo.style.left = e.clientX +'px';
+          weibo.style.top = e.clientY + 'px';
+      }
+
+    }
+
+    document.onmousedown = function (ev1) {
+        var ev2 = window.e || ev1;
+        var targerId =   ev2.target.id ;
+        if(targerId !== 'weibo'){
+
+            weibo.style.display = 'none';
+        }else {
+            window.location.href = 'http://v.t.sina.com.cn/share/share.php?searchPic=false&title=' + selectedText + '&url=https://github.com/xuanzhihua';
+
+        }
+        // 取消选中
+        window.getSelection() ? window.getSelection().removeAllRanges() : document.selection.empty();
+
+    }
+</script>
+</body>
+</html>

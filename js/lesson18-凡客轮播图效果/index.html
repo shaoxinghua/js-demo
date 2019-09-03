@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>凡客轮播图</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 1000px;
+            height: 500px;
+            border: 1px solid #000;
+            margin: 50px auto;
+            position: relative;
+        }
+        img{
+            width: 1000px;
+            height: 500px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: none;
+        }
+        ul{
+            width: 150px;
+            height: 20px;
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            margin-left: -75px;
+        }
+        ul li{
+            list-style: none;
+            width: 20px;
+            height: 20px;
+            background-color: #cccccc;
+            float: left;
+            border-radius: 50%;
+            margin-left: 10px;
+        }
+        .cur{
+            background-color: #f00;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <img src="images/1.jpg" alt="" style="display: block">
+    <img src="images/2.jpg" alt="">
+    <img src="images/3.jpg" alt="">
+    <img src="images/4.jpg" alt="">
+    <img src="images/5.jpg" alt="">
+    <ul>
+        <li class="cur"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<script>
+    var imgs = document.getElementsByTagName('img');
+    var ls = document.getElementsByTagName('li');
+    var c = 0;//大总管变量
+
+    function autorun() {
+        c++;
+        // console.log(imgs[c]);
+        if(c==5){
+            c=0;
+        }
+        for(var i = 0;i<imgs.length;i++){
+            imgs[i].style.display = 'none';
+            ls[i].className = '';
+        }
+        imgs[c].style.display = 'block';
+        ls[c].className = 'cur';
+    }
+
+    var timer = setInterval(autorun,1000);
+
+    for(var i = 0;i<ls.length;i++){
+        ls[i].index = i;
+        ls[i].onmouseover = function (ev) {
+            clearInterval(timer);
+            c = this.index;
+            for(var j =0;j<ls.length;j++){
+                ls[j].className = '';
+                imgs[j].style.display = 'none';
+            }
+            this.className = 'cur';
+            imgs[c].style.display = 'block';
+        }
+
+        ls[i].onmouseout = function (ev) {
+            timer = setInterval(autorun,1000);
+        }
+    }
+</script>
+</body>
+</html>

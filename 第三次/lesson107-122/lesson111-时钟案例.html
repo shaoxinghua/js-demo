@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>时钟案例</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 600px;
+            height: 600px;
+            background:url("images/clock.jpg") no-repeat 0 0;
+            margin: 0 auto;
+            position: relative;
+        }
+        .h,.m,.s{
+            width: 30px;
+            height: 600px;
+            position: absolute;
+            left: 50%;
+            margin-left: -15px;
+            top: 0;
+
+        }
+        .h{
+            background:url("images/hour.png") no-repeat 0 0;
+        }
+        .m{
+            background:url("images/minute.png") no-repeat 0 0;
+        }
+        .s{
+            background:url("images/second.png") no-repeat 0 0;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="h">
+    </div>
+    <div class="m">
+    </div>
+    <div class="s"></div>
+</div>
+<script>
+    var h = document.getElementsByClassName('h')[0];
+    var m = document.getElementsByClassName('m')[0];
+    var s = document.getElementsByClassName('s')[0];
+
+    function  autorun() {
+        var timenow = new Date();
+        var ms = timenow.getMilliseconds();
+
+        var ns = timenow.getSeconds()+ms/1000;
+        var nm = timenow.getMinutes()+ns/60;
+        var nh = timenow.getHours()+nm/60;
+
+        nh = nh>=12 ? nh-12 : nh;
+
+        console.log(ns);
+        h.style.transform = 'rotate('+nh*30+'deg)';
+        m.style.transform = 'rotate('+nm*6+'deg)';
+        s.style.transform = 'rotate('+ns*6+'deg)';
+
+    }
+
+    autorun();
+    setInterval(autorun,10);
+</script>
+</body>
+</html>

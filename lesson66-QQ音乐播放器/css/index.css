@@ -1,0 +1,444 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html,body{
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+}
+/*************************头部样式*************************/
+header{
+    width: 100%;
+    height: 45px;
+    /*background-color: pink;*/
+}
+header .logo{
+    float: left;
+    margin-left: 20px;
+    opacity: 0.5;
+}
+header .logo:hover{
+    opacity: 1;
+}
+header .logo a{
+    display: inline-block;
+    width: 78px;
+    height: 21px;
+    background:url("../images/player_logo.png") no-repeat 0 0;
+}
+header .register{
+    float: right;
+    line-height: 45px;
+    color: #ffffff;
+}
+header .register span{
+    margin-right: 20px;
+    opacity: 0.5;
+}
+header .register span:hover{
+    opacity: 1;
+}
+/*************************头部样式*************************/
+/*************************中间内容区域样式*************************/
+.content{
+    width: 100%;
+    height: 460px;
+    /*background-color: teal;*/
+    user-select: none;
+}
+.content .content-in{
+    width: 1200px;
+    height: 100%;
+    /*background-color: gold;*/
+    margin: 0 auto;
+}
+.content .content-in .content-left{
+    width: 800px;
+    height: 100%;
+    float: left;
+    /*background-color: #cccccc;*/
+}
+.content .content-in .content-left .content-toolbar{
+    width: 100%;
+    height: 40px;
+}
+.content .content-in .content-left .content-toolbar span{
+    display: inline-block;
+    width: 122px;
+    height: 100%;
+    border: 1px solid #fff;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 5px;
+    color: #ffffff;
+    box-sizing: border-box;
+    opacity: 0.5;
+}
+.content .content-in .content-left .content-toolbar span:hover{
+    opacity: 1;
+}
+.content .content-in .content-left .content-toolbar span i{
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background: url("../images/icon_sprite.png") no-repeat 0 0;
+    margin-right: 10px;
+    vertical-align: -5px;
+}
+.content .content-in .content-left .content-toolbar span:nth-child(1) i{
+    background-position: -60px -20px;
+}
+.content .content-in .content-left .content-toolbar span:nth-child(2) i{
+    background-position: -20px -20px;
+}
+.content .content-in .content-left .content-toolbar span:nth-child(3) i{
+    background-position: -40px -240px;
+}
+.content .content-in .content-left .content-toolbar span:nth-child(4) i{
+    background-position: -120px -20px;
+}
+.content .content-in .content-left .content-toolbar span:nth-child(5) i{
+    background-position: -40px -300px;
+}
+.content-list{
+    width: 100%;
+    height: 420px;
+    overflow: auto;
+}
+.content-list ul li{
+    list-style: none;
+    width: 100%;
+    height: 50px;
+    color: #fff;
+    /*background-color:lightcoral;*/
+    border-bottom: 1px solid rgba(255,255,255,0.5);
+    box-sizing: border-box;
+}
+.content-list ul li div{
+    float: left;
+    line-height: 50px;
+    color: rgba(255,255,255,0.5);
+    /*opacity: 0.5;*/
+}
+.content-list ul  li .list-check{
+    width: 50px;
+    height: 100%;
+    /*background-color: #000;*/
+    text-align: center;
+}
+.content-list ul  li .list-check i{
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border: 1px solid #fff;
+    opacity: 0.5;
+}
+.content-list ul  li .list-check i.list-checked{
+    background: url("../images/icon_sprite.png") no-repeat -60px -80px;
+    opacity: 1;
+}
+
+.content-list ul  li .list-number{
+    width: 20px;
+    height: 100%;
+    /*background-color: #ccc;*/
+}
+.content-list ul  li .list-number2{
+    background:url("../images/wave.gif") no-repeat 0 center;
+    color: transparent !important;
+}
+.content-list ul  li .list-name{
+    width: 50%;
+    height: 100%;
+    /*background-color: lawngreen;*/
+}
+.content-list ul  li .list-name .list-menu{
+    float: right;
+    margin-top: 5px;
+    margin-right: 20px;
+    display: none;
+}
+.content-list ul  li .list-name .list-menu a{
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    background:url("../images/icon_list_menu.png") no-repeat 0 0;
+    opacity: 0.5;
+}
+.content-list ul  li .list-name .list-menu a:hover{
+    opacity: 1;
+}
+.content-list ul  li .list-name .list-menu a:nth-child(1){
+    background-position: -120px 0;
+}
+.content-list ul  li .list-name .list-menu a:nth-child(2){
+    background-position: -120px -80px;
+}
+.content-list ul  li .list-name .list-menu a:nth-child(3){
+    background-position: -120px -120px;
+}
+.content-list ul  li .list-name .list-menu a:nth-child(4){
+    background-position: -120px -40px;
+}
+
+.content-list ul li .list-name .list-menu .list-play2{
+    background-position: -80px -200px !important;
+}
+.content-list ul  li .list-singer{
+    width: 20%;
+    height: 100%;
+    /*background-color: palevioletred;*/
+}
+.content-list ul  li .list-time a{
+    float: left;
+    margin-top: 5px;
+    /*display: inline-block;*/
+    width: 36px;
+    height: 36px;
+    background:url("../images/icon_list_menu.png") no-repeat -120px -160px;
+    display: none;
+    opacity: 0.5;
+}
+.content-list ul  li .list-time a:hover{
+    opacity: 1;
+}
+.content .content-in .content-right{
+    width:400px;
+    height: 100%;
+    float: right;
+    /*background-color: #2b2b2b;*/
+}
+.content .content-in .content-right .song-info{
+    text-align: center;
+    line-height: 30px;
+    color: rgba(255,255,255,0.5);
+}
+.content .content-in .content-right .song-info .song-info-pic{
+    display: inline-block;
+    width: 210px;
+    height: 180px;
+    background: url("../images/album_cover_player.png") no-repeat 0 0;
+    text-align: left;
+}
+.content .content-in .content-right .song-info .song-info-pic img{
+    width: 180px;
+    height: 180px;
+}
+.content .content-in .content-right .song-info div a{
+    color:#fff;
+    opacity: 0.5;
+    text-decoration: none;
+}
+.content .content-in .content-right .song-info a:hover{
+    opacity: 1;
+}
+.content-right .song-lyric-container{
+    height: 150px;
+    margin-top: 30px;
+    overflow: hidden;
+}
+.content-right .song-lyric-container .song-lyric{
+    text-align: center;
+}
+.content-right .song-lyric-container .song-lyric li{
+    list-style: none;
+    line-height: 30px;
+    font-weight: bold;
+    color: rgba(255,255,255,0.5);
+}
+
+/*************************中间内容区域样式*************************/
+/*************************尾部样式*************************/
+footer{
+    width: 100%;
+    height: 80px;
+    /*background-color:lawngreen;*/
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+footer .footer-in{
+    width: 1200px;
+    height: 100%;
+    /*background-color: rosybrown;*/
+    margin: 0 auto;
+    user-select: none;
+}
+footer .footer-in a{
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    margin-right: 20px;
+    background: url("../images/player.png") no-repeat 0 0;
+}
+footer .footer-in .music-pre{
+    width: 19px;
+    height: 20px;
+    background-position: 0 -30px;
+}
+footer .footer-in .music-play{
+    width: 21px;
+    height: 29px;
+    background-position: 0 0;
+    vertical-align: -5px;
+}
+footer .footer-in .music-play2{
+    background-position: -30px 0;
+}
+footer .footer-in .music-next{
+    width: 19px;
+    height: 20px;
+    background-position: 0 -52px;
+}
+footer .footer-in .music-progress-info{
+    display: inline-block;
+    width: 670px;
+    height: 40px;
+    position: relative;
+    top: 10px;
+}
+footer .footer-in .music-progress-info .music-progress-top{
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    color: #fff;
+}
+footer .footer-in .music-progress-info .music-progress-top .music-progress-name{
+     float: left;
+     opacity: 0.5;
+ }
+footer .footer-in .music-progress-info .music-progress-top .music-progress-name:hover{
+    opacity: 1;
+}
+footer .footer-in .music-progress-info .music-progress-top .music-progress-time{
+    float: right;
+    opacity: 0.5;
+}
+footer .footer-in .music-progress-info .music-progress-bar{
+    width: 100%;
+    height: 4px;
+    margin-top: 5px;
+    background-color: rgba(255,255,255,0.5);
+    position: relative;
+}
+footer .footer-in .music-progress-info .music-progress-line{
+    width: 0px;
+    height: 4px;
+    background-color: rgb(255,255,255);
+}
+footer .footer-in .music-progress-info .music-progress-dot{
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: rgb(255,255,255);
+    position: absolute;
+    left: 0px;
+    top: -5px;
+}
+footer .footer-in .music-mode{
+    width: 26px;
+    height: 25px;
+    background-position: 0 -205px;
+}
+footer .footer-in .music-mode2{
+    width: 23px;
+    height: 20px;
+    background-position: 0 -260px;
+}
+footer .footer-in .music-mode3{
+    width: 25px;
+    height: 19px;
+    background-position: 0 -74px;
+}
+footer .footer-in .music-mode4{
+    width: 26px;
+    height: 25px;
+    background-position: 0 -232px;
+}
+footer .footer-in .music-fav{
+    width: 24px;
+    height: 21px;
+    background-position: 0 -96px;
+}
+footer .footer-in .music-fav2{
+    background-position: -30px -96px;
+}
+footer .footer-in .music-down{
+    width: 22px;
+    height: 21px;
+    background-position: 0 -120px;
+}
+footer .footer-in .music-comment{
+    width: 24px;
+    height: 24px;
+    background-position: 0 -400px;
+}
+footer .footer-in .music-only{
+    width: 74px;
+    height: 27px;
+    background-position: 0 -281px;
+}
+footer .footer-in .music-only2{
+    background-position: 0 -310px;
+}
+footer .footer-in .music-voice-info{
+    display: inline-block;
+    width: 100px;
+    height: 40px;
+    position: relative;
+    top: 10px;
+}
+footer .footer-in .music-voice-icon{
+    width: 26px;
+    height: 21px;
+    background-position: 0 -144px;
+    position: absolute;
+    left: 0;
+    top: 10px;
+}
+footer .footer-in .music-voice-bar{
+    width: 70px;
+    height: 4px;
+    background-color: rgba(255,255,255,0.5);
+    position: absolute;
+    right: 0;
+    top: 18px;
+}
+footer .footer-in .music-voice-line{
+    width: 20px;
+    height: 100%;
+    background-color: #fff;
+}
+footer .footer-in .music-voice-dot{
+    width: 14px;
+    height: 14px;
+    border-radius:50%;
+    background-color: #fff;
+    position: absolute;
+    left: 20px;
+    top: -5px;
+}
+/*************************尾部样式*************************/
+/*************************背景样式*************************/
+.mask-bg{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background:url("../images/lnj.jpg") no-repeat 0 0;
+    background-size: cover;
+    z-index: -2;
+    filter:blur(100px);/*高斯模糊*/
+}
+.mask{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: rgba(0,0,0,0.35);
+    z-index: -1;
+}
+/*************************背景样式*************************/

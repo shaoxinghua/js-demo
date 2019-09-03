@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>元素自动显隐效果</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<input class="bu" type="button" value="点我！">
+<div></div>
+<script>
+    var bu = document.getElementsByClassName('bu')[0];
+    var div = document.getElementsByTagName('div')[0];
+    var status = 1;//让元素隐藏
+    bu.onclick = function () {
+        if(status==1){
+            div.style.display='none';
+            status=2;
+        }else if(status ==2){
+            div.style.display='block';
+            status=1;
+        }
+
+
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>九宫格</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul li{
+            width: 220px;
+            height: 360px;
+            list-style: none;
+            background-color: #cccccc;
+            margin-right: 15px;
+            margin-bottom: 15px;
+        }
+        span{
+            font-size: 12px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div class="but">
+    <input type="button" value="每行3列">
+    <input type="button" value="每行4列">
+    <input type="button" value="每行5列">
+</div>
+<ul>
+    <li><img src="image/1.jpg" alt="">
+        <p>因为遇见你</p>
+        <span>孙怡邓伦牵手演绎刺绣奇缘</span>
+    </li>
+    <li><img src="image/2.jpg" alt="">
+        <p>因为遇见你</p>
+        <span>孙怡邓伦牵手演绎刺绣奇缘</span>
+    </li>
+    <li><img src="image/3.jpg" alt="">
+        <p>因为遇见你</p>
+        <span>孙怡邓伦牵手演绎刺绣奇缘</span>
+    </li>
+    <li><img src="image/4.jpg" alt="">
+        <p>因为遇见你</p>
+        <span>孙怡邓伦牵手演绎刺绣奇缘</span>
+    </li>
+    <li><img src="image/5.jpg" alt="">
+        <p>因为遇见你</p>
+        <span>孙怡邓伦牵手演绎刺绣奇缘</span>
+    </li>
+    <li><img src="image/6.jpg" alt="">
+        <p>因为遇见你</p>
+        <span>孙怡邓伦牵手演绎刺绣奇缘</span>
+    </li>
+    <li><img src="image/7.jpg" alt="">
+        <p>因为遇见你</p>
+        <span>孙怡邓伦牵手演绎刺绣奇缘</span>
+    </li>
+    <li><img src="image/8.jpg" alt="">
+        <p>因为遇见你</p>
+        <span>孙怡邓伦牵手演绎刺绣奇缘</span>
+    </li>
+    <li><img src="image/9.jpg" alt="">
+        <p>因为遇见你</p>
+        <span>孙怡邓伦牵手演绎刺绣奇缘</span>
+    </li>
+    <li><img src="image/10.jpg" alt="">
+        <p>因为遇见你</p>
+        <span>孙怡邓伦牵手演绎刺绣奇缘</span>
+    </li>
+    <li><img src="image/11.jpg" alt="">
+        <p>因为遇见你</p>
+        <span>孙怡邓伦牵手演绎刺绣奇缘</span>
+    </li>
+    <li><img src="image/12.jpg" alt="">
+        <p>因为遇见你</p>
+        <span>孙怡邓伦牵手演绎刺绣奇缘</span>
+    </li>
+    <li><img src="image/13.jpg" alt="">
+        <p>因为遇见你</p>
+        <span>孙怡邓伦牵手演绎刺绣奇缘</span>
+    </li>
+    <li><img src="image/14.jpg" alt="">
+        <p>因为遇见你</p>
+        <span>孙怡邓伦牵手演绎刺绣奇缘</span>
+    </li>
+    <li><img src="image/15.jpg" alt="">
+        <p>因为遇见你</p>
+        <span>孙怡邓伦牵手演绎刺绣奇缘</span>
+    </li>
+</ul>
+<script>
+    var ls = document.getElementsByTagName('li');
+    var but = document.getElementsByClassName('but')[0];
+    var ul = document.getElementsByTagName('ul')[0];
+
+    but.children[0].onclick =function () {
+       for(var i = 0;i<ls.length;i++){
+           ul.style.width = 235*3 + 'px';
+           ls[i].style.float = 'left';
+       }
+    }
+    but.children[1].onclick =function () {
+        for(var i = 0;i<ls.length;i++){
+            ul.style.width = 235*4 + 'px';
+            ls[i].style.float = 'left';
+        }
+    }
+    but.children[2].onclick =function () {
+        for(var i = 0;i<ls.length;i++){
+            ul.style.width = 235*5 + 'px';
+            ls[i].style.float = 'left';
+        }
+    }
+</script>
+</body>
+</html>

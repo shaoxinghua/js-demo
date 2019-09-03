@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>侧边广告效果</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .aside{
+            width: 100px;
+            position: absolute;
+            left: 0;
+            top: 150px;
+        }
+        .aside img{
+            width: 100px;
+        }
+        p{
+            text-align: center;
+            line-height: 30px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="aside">
+    <img src="images/float.jpg" alt="">
+</div>
+<p>好好学习，天天向上</p>
+<p>好好学习，天天向上</p>
+<p>好好学习，天天向上</p>
+<p>好好学习，天天向上</p>
+<p>好好学习，天天向上</p>
+<p>好好学习，天天向上</p>
+<p>好好学习，天天向上</p>
+<p>好好学习，天天向上</p>
+<p>好好学习，天天向上</p>
+<p>好好学习，天天向上</p>
+<p>好好学习，天天向上</p>
+<p>好好学习，天天向上</p>
+<p>好好学习，天天向上</p>
+<p>好好学习，天天向上</p>
+<p>好好学习，天天向上</p>
+<p>好好学习，天天向上</p>
+<p>好好学习，天天向上</p>
+<p>好好学习，天天向上</p>
+<p>好好学习，天天向上</p>
+<p>好好学习，天天向上</p>
+<p>好好学习，天天向上</p>
+<p>好好学习，天天向上</p>
+<p>好好学习，天天向上</p>
+<p>好好学习，天天向上</p>
+<p>好好学习，天天向上</p>
+<p>好好学习，天天向上</p>
+<p>好好学习，天天向上</p>
+<p>好好学习，天天向上</p>
+<p>好好学习，天天向上</p>
+<p>好好学习，天天向上</p>
+<p>好好学习，天天向上</p>
+<p>好好学习，天天向上</p>
+<p>好好学习，天天向上</p>
+<p>好好学习，天天向上</p>
+<p>好好学习，天天向上</p>
+<p>好好学习，天天向上</p>
+<p>好好学习，天天向上</p>
+<p>好好学习，天天向上</p>
+<p>好好学习，天天向上</p>
+<p>好好学习，天天向上</p>
+<p>好好学习，天天向上</p>
+<p>好好学习，天天向上</p>
+<p>好好学习，天天向上</p>
+<p>好好学习，天天向上</p>
+<p>好好学习，天天向上</p>
+<p>好好学习，天天向上</p>
+<p>好好学习，天天向上</p>
+<p>好好学习，天天向上</p>
+<p>好好学习，天天向上</p>
+<script>
+    var asi = document.getElementsByClassName('aside')[0];
+    var asiTop = asi.offsetTop;
+    var begin = 0, end =0, timer =null;
+    window.onscroll = function (ev) {
+        clearInterval(timer);
+        end = asiTop + document.documentElement.scrollTop;
+        timer = setInterval(function () {
+           begin += (end-begin)*0.2;
+           asi.style.top = begin + 'px';
+           if(Math.round(begin) == end){
+               clearInterval(timer);
+           }
+        },20)
+    }
+</script>
+</body>
+</html>

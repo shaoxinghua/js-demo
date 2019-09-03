@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>漂浮广告</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 150px;
+            height: 150px;
+            background-color: orchid;
+            position: absolute;
+            left: 0;
+            top:0;
+        }
+        .close{
+            width: 15px;
+            height: 15px;
+            background-color: #000;
+            float: right;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="close"></div>
+</div>
+<script>
+    var box = document.getElementsByClassName('box')[0];
+    var close = box.children[0];
+
+    box.onmouseover = function () {
+        clearInterval(timer);
+        close.onclick=function(){
+            box.style.display ='none';
+        }
+
+    }
+    box.onmouseout = function () {
+        timer = setInterval(au,30);
+    }
+
+    var t = 5,
+        d =5;
+    var h = document.documentElement.clientHeight - box.offsetHeight,
+        w = document.documentElement.clientWidth - box.offsetWidth;
+    console.log(h);
+    var timer = setInterval(au,30);
+
+      function au(){
+        var  old_left = box.offsetLeft,
+            old_top = box.offsetTop,
+            new_left = old_left + t,
+            new_top = old_top +d;
+        // if(new_top == h){
+        //     d = -1*d;
+        // }
+        // if(new_top ==0){
+        //     d = -1*d;
+        // }
+        if(new_top>h){
+            new_top = h;
+        }
+        if(new_top<0){
+            new_top = 0;
+        }
+        if(new_top ==h||new_top ==0){
+            d = -1*d;
+        }
+
+        // if(new_left == w){
+        //     t = -1*t;
+        // }
+        // if(new_left ==0){
+        //     t = -1*t;
+        // }
+        if(new_left>w){
+            new_left =w;
+        }
+        if(new_left<0){
+            new_left =0;
+        }
+        if(new_left == w||new_left==0){
+            t = -1*t;
+        }
+
+
+        box.style.left = new_left + 'px';
+        box.style.top = new_top + 'px';
+
+}
+
+    window.onresize= function (ev) {
+        h = document.documentElement.clientHeight - box.offsetHeight;
+        // console.log(h);
+        w = document.documentElement.clientWidth - box.offsetWidth;
+        box.style.left = 0 + 'px';
+        box.style.top = 0 + 'px';
+        t = 5;
+        d = 5;
+    }
+</script>
+</body>
+</html>

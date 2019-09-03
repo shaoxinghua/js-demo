@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>进度条特效</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 800px;
+            height: 30px;
+            /*background-color: pink;*/
+            margin: 100px auto;
+        }
+        .bar{
+            width: 700px;
+            height: 30px;
+            float: left;
+            background-color: #cccccc;
+            border-radius: 5px;
+            position: relative;
+        }
+        .progress{
+            /*width: 100px;*/
+            background-color: orangered;
+            /*height: 30px;*/
+            border-bottom-left-radius: 5px;
+            border-top-left-radius: 5px;
+        }
+        span{
+            width: 20px;
+            height: 40px;
+            background-color: orangered;
+            border-radius: 5px;
+            position: absolute;
+            /*left: 100px;*/
+            top: -5px;
+        }
+        .value{
+            width: 100px;
+            height: 30px;
+            float: left;
+            text-align: center;
+            line-height: 30px;
+            /*display: none;*/
+        }
+
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="bar">
+        <div class="progress"></div>
+        <span></span>
+    </div>
+    <div class="value"></div>
+</div>
+<script>
+
+    var progress = document.getElementsByClassName('progress')[0];
+    var sp = document.getElementsByTagName('span')[0];
+    var va = document.getElementsByClassName('value')[0];
+
+    sp.onmousedown = function (e) {
+        var ev1 = window.e || e;
+        var begin = ev1.clientX - sp.offsetLeft;
+        // console.log( "sp:"+sp.offsetLeft);
+        // console.log('e:'+ev1.clientX);
+        // console.log(begin);
+        document.onmousemove = function (ev) {
+        var ev2 = window.e || ev;
+        var new_l = ev2.clientX -begin;
+
+
+            if(new_l<0){
+            new_l=0;
+        }
+        if(new_l>680){
+            new_l = 680;
+        }
+        sp.style.left = new_l+ 'px';
+        progress.style.width  = new_l + 'px';
+        progress.style.height = '30px';
+        va.innerText = parseInt(new_l/680*100)+'%';
+
+        return false;
+
+        }
+        document.onmouseup = function () {
+            document.onmousemove = null;
+        }
+    }
+</script>
+</body>
+</html>

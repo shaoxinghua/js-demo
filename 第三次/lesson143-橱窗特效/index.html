@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>橱窗特效</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .box{
+            width: 800px;
+            height: 180px;
+            border: 1px solid #cccccc;
+            margin: 100px auto;
+            overflow: hidden;
+        }
+        .top{
+            width: 1300px;
+            height: 130px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            background-color: red;
+            position: relative;
+
+        }
+        .top ul li{
+            float: left;
+        }
+        .bar{
+            width: 100%;
+            height: 20px;
+            background-color: #cccccc;
+            position: relative;
+        }
+        .progress{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 0px;
+            height: 100%;
+            background-color:orangered;
+            border-radius: 10px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="top">
+        <ul>
+            <li><img src="images/img1.jpg" alt=""></li>
+            <li><img src="images/img2.jpg" alt=""></li>
+            <li><img src="images/img3.jpg" alt=""></li>
+            <li><img src="images/img4.jpg" alt=""></li>
+            <li><img src="images/img5.jpg" alt=""></li>
+            <li><img src="images/img6.jpg" alt=""></li>
+            <li><img src="images/img7.jpg" alt=""></li>
+            <li><img src="images/img8.jpg" alt=""></li>
+            <li><img src="images/img1.jpg" alt=""></li>
+            <li><img src="images/img2.jpg" alt=""></li>
+
+        </ul>
+    </div>
+    <div class="bar">
+        <div class="progress"></div>
+    </div>
+</div>
+<script>
+    var t = document.getElementsByClassName('top')[0];
+    var bar = document.getElementsByClassName('bar')[0];
+    var progress = document.getElementsByClassName('progress')[0];
+    progress.style.width = 800/1300*800 + 'px';
+
+    progress.onmousedown = function (e) {
+        var ev = window.e || e;
+        var begin = ev.clientX - progress.offsetLeft;
+        document.onmousemove = function (ev1) {
+            var ev2 = window.e || ev1;
+            var nl = ev2.clientX - begin;
+            if(nl<0){
+                nl = 0;
+            }
+            if(nl>(800-progress.offsetWidth)){
+                nl= 800-progress.offsetWidth;
+            }
+             progress.style.left = nl + 'px';
+            t.style.left =- nl*1300/800 +'px';
+
+        }
+        document.onmouseup = function () {
+            document.onmousemove= null;
+        }
+    }
+
+</script>
+</body>
+</html>

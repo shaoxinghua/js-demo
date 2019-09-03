@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>简化版微博</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 600px;
+            /*height: 300px;*/
+            border: 1px solid #000;
+            margin: 100px auto;
+            padding: 20px;
+        }
+        ul{
+            width: 500px;
+            margin: 15px auto;
+
+        }
+        li{
+            list-style: none;
+            width: 500px;
+            height: 30px;
+            line-height: 30px;
+            border-bottom: 1px dashed #cccccc;
+
+        }
+        li a{
+            float:right;
+        }
+
+    </style>
+</head>
+<body>
+<div class="box">
+    发表评论：
+    <textarea  cols="90" rows="10"></textarea>
+    <br>
+    <input type="button" value="发表">
+    <ul class="con">
+
+<!--       <li>今天天气不错！<a href="#">删除</a></li>-->
+
+    </ul>
+
+</div>
+<script>
+    window.onload =function (ev) {
+
+        var tex = document.getElementsByTagName('textarea')[0];
+        var inp = document.getElementsByTagName('input')[0];
+        var ul = document.getElementsByTagName('ul')[0];
+        inp.onclick = function (ev) {
+            if(!tex.value){
+                // alert(tex.value);
+                alert('请输入内容');
+            }else{
+                var li = document.createElement("li");
+                li.innerHTML =''+tex.value+'<a href="#">删除</a>';
+                ul.insertBefore(li,ul.firstElementChild);
+
+                tex.onfocus = function (ev1) {
+                    tex.value = '';
+                }
+
+            }
+                var a = document.getElementsByTagName('a')[0];
+                a.onclick = function (ev) {
+                    this.parentNode.remove();
+                }
+
+        }
+
+    }
+
+</script>
+</body>
+</html>

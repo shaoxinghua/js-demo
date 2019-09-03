@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>缓动动画封装</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: orangered;
+            position: absolute;
+            left: 0;
+            top: 30px;
+        }
+    </style>
+    <script src="myFunc1.js"></script>
+
+
+</head>
+<body>
+<input class="btn" type="button" value="向右走">
+<div class="box"></div>
+<!--<script src="myFunc.js"></script>-->
+<script>
+    window.onload = function (ev) {
+        var btn = document.getElementsByClassName('btn')[0];
+        var bo = document.getElementsByClassName('box')[0];
+
+        btn.onclick = function () {
+            buffer(bo,{'left':400});
+
+        };
+    }
+
+
+    // function buffer(obj,target) {
+    //
+    //     obj.timer = setInterval(function () {
+    //         var begin = obj.offsetLeft;
+    //         var speed = (target-begin)*0.2;
+    //
+    //         speed = speed>0 ? Math.ceil(speed) : Math.floor(speed);
+    //
+    //         obj.style.left = begin+speed+'px';
+    //
+    //         if(obj.offsetLeft===target){
+    //             clearInterval(obj.timer);
+    //         }
+    //     },20);
+    // }
+</script>
+</body>
+</html>

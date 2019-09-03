@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>联动特效</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 200px;
+            position: fixed;
+            right: 0;
+            bottom: 0;
+        }
+        img{
+            width: 200px;
+            vertical-align: top;
+        }
+        .close{
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            background-color: #ff0000;
+        }
+
+    </style>
+    <script src="../myFunc.js"></script>
+</head>
+<body>
+<div class="box">
+    <span class="close"></span>
+    <div class="top">
+        <img src="images/top.jpg" alt="">
+    </div>
+    <div class="bottom">
+        <img src="images/bottom.jpg" alt="">
+    </div>
+</div>
+<script>
+    var bo = document.getElementsByClassName('box')[0];
+    var close = document.getElementsByClassName('close')[0];
+    var to = document.getElementsByClassName('top')[0];
+    var bot = document.getElementsByClassName('bottom')[0];
+
+    close.onclick = function () {
+        buffer(bot,{'height':0},function () {
+            buffer(bo,{'width':0},function () {
+                close.style.display = 'none';
+            })
+        })
+    }
+</script>
+</body>
+</html>

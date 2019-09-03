@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>折返跑效果</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .sport{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            margin-top: 20px;
+            position: relative;
+            left: 0;
+            top: 0;
+        }
+        .wall{
+            width: 30px;
+            height: 100%;
+            background-color: #ccc;
+            position: absolute;
+            right: 50px;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="点我！">
+<div class="sport"></div>
+<div class="wall"></div>
+<script>
+    var button = document.getElementsByTagName('input')[0];
+    var sport = document.getElementsByClassName('sport')[0];
+    var wall = document.getElementsByClassName('wall')[0];
+    var timer;
+    var status=1;
+    var l = wall.offsetLeft-sport.offsetWidth;
+    var speed=10;
+    button.onclick =function (ev) {
+        if(status==1){
+            timer=setInterval(function () {
+                var oldLeft = sport.offsetLeft;
+
+                var newLeft = oldLeft + speed;
+                if(newLeft>=l){
+                    newLeft =l;
+                    speed=-10;
+                }
+                if(newLeft <=0){
+                    newLeft =0;
+                    speed=10;
+                }
+                sport.style.left = newLeft+'px';
+
+
+            },10)  ;
+            status =2;
+        }else if(status==2){
+            clearInterval(timer);
+            status=1;
+        }
+
+
+
+
+    }
+</script>
+</body>
+</html>

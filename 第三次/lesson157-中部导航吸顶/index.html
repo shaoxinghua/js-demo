@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>中部导航吸顶</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        img{
+            width: 100%;
+            vertical-align: top;
+        }
+        section{
+            width: 70%;
+            margin: 0 auto;
+        }
+        .nav{
+            position: fixed;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <img src="images/top.png" alt="">
+</header>
+<nav>
+    <img src="images/nav.png" alt="">
+</nav>
+<section>
+    <img src="images/body01.png" alt="">
+    <img src="images/body02.png" alt="">
+</section>
+<script>
+    var na = document.getElementsByTagName('nav')[0];
+    var navTop = na.offsetTop;
+    window.onscroll = function (ev) {
+        var scrolltop = document.documentElement.scrollTop;
+        if(scrolltop>=navTop){
+            na.className = 'nav';
+        }else {
+            na.className = '';
+        }
+    }
+</script>
+</body>
+</html>

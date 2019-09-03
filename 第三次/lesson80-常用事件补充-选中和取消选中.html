@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选中和取消选中</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 400px;
+            height: 300px;
+            border: 1px solid #ccc;
+            margin: 50px auto;
+            padding: 20px;
+            box-shadow: 0px 0px 5px;
+        }
+        h3{
+            text-align: center;
+            line-height: 30px;
+            border-bottom: 1px solid #ccc;
+        }
+        ul{
+            padding: 10px 0;
+        }
+        ul li{
+            list-style: none;
+            line-height: 25px;
+        }
+        .but{
+            text-align: center;
+            border-top: 1px solid #cccccc;
+
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <h3>歌曲排行榜</h3>
+    <ul>
+        <li><input type='checkbox'>1.时间都去哪了</li>
+        <li><input type='checkbox'>2.时间都去哪了</li>
+        <li><input type='checkbox'>3.时间都去哪了</li>
+        <li><input type='checkbox'>4.时间都去哪了</li>
+        <li><input type='checkbox'>5.时间都去哪了</li>
+        <li><input type='checkbox'>6.时间都去哪了</li>
+        <li><input type='checkbox'>7.时间都去哪了</li>
+        <li><input type='checkbox'>8.时间都去哪了</li>
+    </ul>
+    <div class="but">
+        <input type="button" value="全选">
+        <input type="button" value="取消选中">
+        <input type="button" value="反选">
+    </div>
+</div>
+<script>
+    var ls = document.getElementsByTagName('li');
+    var but = document.getElementsByClassName('but')[0];
+    var q = but.children[0];
+    var x = but.children[1];
+    var f = but.children[2];
+   q.onclick = function () {
+       for(var i=0;i<ls.length;i++){
+           ls[i].children[0].checked = true;
+       }
+   }
+
+    x.onclick = function () {
+        for(var i=0;i<ls.length;i++){
+            ls[i].children[0].checked = false;
+        }
+    }
+    f.onclick = function () {
+        for(var i=0;i<ls.length;i++){
+
+            ls[i].children[0].checked = !ls[i].children[0].checked;
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>放大镜特效</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 350px;
+            margin-left: 100px;
+            margin-top: 100px;
+            position: relative;
+        }
+        .middle{
+            width: 350px;
+            height: 350px;
+            border: 1px solid #cccccc;
+            position: relative;
+        }
+        span{
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+            opacity: 0.5;
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: none;
+            z-index: 3;
+        }
+        ul li{
+            list-style: none;
+            float: left;
+            margin-right: 20px;
+            margin-top: 20px;
+        }
+        .big{
+            width: 600px;
+            height: 600px;
+            position: absolute;
+            left: 360px;
+            top: 0;
+            border: 1px solid #cccccc;
+            overflow: hidden;
+            display: none;
+        }
+        .big  img{
+            position: absolute;
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="middle">
+        <img src="images/pic001.jpg" alt="">
+        <span></span>
+
+    </div>
+    <ul>
+        <li><img src="images/pic0001.jpg" alt=""></li>
+        <li><img src="images/pic0002.jpg" alt=""></li>
+        <li><img src="images/pic0003.jpg" alt=""></li>
+    </ul>
+    <div class="big">
+        <img src="images/pic01.jpg" alt="">
+    </div>
+</div>
+<script>
+    var mid = document.getElementsByClassName('middle')[0];
+    var mimg = mid.children[0];
+    var spa = mid.children[1];
+    var ls = document.getElementsByTagName('li');
+    var b = document.getElementsByClassName('big')[0];
+    var bimg = b.children[0];
+
+    for(var i = 0;i<ls.length;i++){
+         ls[i].num = i;
+        ls[i].onmouseover = function () {
+            mimg.src = "images/pic00"+(this.num+1)+".jpg";
+            bimg.src = "images/pic0"+(this.num+1)+".jpg";
+        }
+    }
+
+
+   mid.onmouseover = function(){
+       spa.style.display = 'block';
+       b.style.display = 'block';
+       mid.onmousemove = function (e) {
+           var ev = window.e|| e;
+           var l =ev.clientX-mid.parentNode.offsetLeft-spa.offsetWidth/2;
+           var t =ev.clientY-mid.parentNode.offsetTop-spa.offsetHeight/2;
+           if(l<0){
+               l=0;
+           }
+           if(l>250){
+               l=250;
+           }
+           if(t<0){
+               t=0;
+           }
+           if(t>250){
+               t=250;
+           }
+           spa.style.left =l+ 'px';
+           bimg.style.left =-4*l/5 +'px';
+
+
+           spa.style.top = t+ 'px';
+           bimg.style.top = -4*t/5+ 'px';
+
+       }
+   }
+    mid.onmouseout = function(){
+        spa.style.display = 'none';
+        b.style.display = 'none';
+    }
+
+</script>
+</body>
+</html>

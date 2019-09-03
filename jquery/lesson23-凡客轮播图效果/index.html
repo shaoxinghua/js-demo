@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>凡客轮播图</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 1000px;
+            height: 500px;
+            border: 1px solid #000;
+            margin: 50px auto;
+            position: relative;
+        }
+        img{
+            width: 1000px;
+            height: 500px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: none;
+        }
+        ul{
+            width: 150px;
+            height: 20px;
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            margin-left: -75px;
+        }
+        ul li{
+            list-style: none;
+            width: 20px;
+            height: 20px;
+            background-color: #cccccc;
+            float: left;
+            border-radius: 50%;
+            margin-left: 10px;
+        }
+        .cur{
+            background-color: #f00;
+        }
+    </style>
+    <script src="../jquery-1.12.4.js"></script>
+</head>
+<body>
+<div class="box">
+    <img src="images/1.jpg" alt="" style="display: block">
+    <img src="images/2.jpg" alt="">
+    <img src="images/3.jpg" alt="">
+    <img src="images/4.jpg" alt="">
+    <img src="images/5.jpg" alt="">
+    <ul>
+        <li class="cur"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<script>
+  $(function () {
+      var c = 0;
+      function autorun() {
+          c++;
+          if(c==5){
+              c=0;
+          }
+          // 让c号图片显示，其他图片隐藏
+          $('.box img').eq(c).stop().fadeIn(200).siblings('img').stop().fadeOut(200);
+          // 让图标与图片相对应
+          $('ul li').eq(c).css({'background-color':'red'}).siblings('li').css({'background-color':'#ccc'});
+      }
+      var timer = setInterval(autorun,1000);
+
+      $('.box').mouseenter(function () {
+          // alert(0);
+          clearInterval(timer);
+      }) ;
+      $('.box').mouseleave(function () {
+          timer = setInterval(autorun,1000);
+      });
+      $('ul li').mouseenter(function () {
+          c =  $(this).index();
+          // 让c号图片显示，其他图片隐藏
+          $('.box img').eq(c).show().siblings('img').hide();
+          // 让图标与图片相对应
+          $('ul li').eq(c).css({'background-color':'red'}).siblings('li').css({'background-color':'#ccc'});
+      })
+  })
+</script>
+</body>
+</html>

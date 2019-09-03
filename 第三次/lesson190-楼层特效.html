@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>楼层特效</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        html,body,ul{
+            width: 100%;
+            height: 100%;
+        }
+        ul li{
+            width: 100%;
+            height: 100%;
+            background-color: pink;
+            text-align: center;
+            font-size: 30px;
+        }
+        ol{
+            position: fixed;
+            left: 50px;
+            top: 200px;
+        }
+        ol li{
+            width: 100px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            font-size: 16px;
+            background-color: #cccccc;
+            border: 1px solid #fff;
+        }
+        ol .cur{
+            background-color: mediumturquoise;
+        }
+    </style>
+    <script src="MyFunc.js"></script>
+</head>
+<body>
+<ul class="ul">
+    <li>第1层</li>
+    <li>第2层</li>
+    <li>第3层</li>
+    <li>第4层</li>
+    <li>第5层</li>
+</ul>
+<ol class="ol">
+    <li class="cur">第1层</li>
+    <li>第2层</li>
+    <li>第3层</li>
+    <li>第4层</li>
+    <li>第5层</li>
+</ol>
+<script>
+    var u = document.getElementsByTagName('ul')[0];
+    var uls = u.children;
+    var o = document.getElementsByTagName('ol')[0];
+    var ols = o.children;
+    // console.log(ols);
+    var isClick = false;
+
+    var colorArr = ['pink','chartreuse','powderblue','fuchsia','skyblue'];
+    for(var j =0;j<uls.length;j++){
+        uls[j].style.backgroundColor = colorArr[j];
+    }
+
+    for(var i =0;i<ols.length;i++){
+        (function (i) {
+            ols[i].onclick = function (){
+                isClick =true;
+                for(var j =0;j<ols.length;j++){
+                    ols[j].className = '';
+                }
+                this.className = 'cur';
+
+                // var screenHeight = document.documentElement.clientHeight;
+
+                buffer(document.documentElement,{'scrollTop':i*client().height},function () {
+                    isClick = false;
+                });
+            }
+        })(i);
+
+    }
+
+
+    window.onscroll = function (ev) {
+        if(!isClick){
+            var roll = Math.ceil(scroll().top);
+            for(var i = 0;i<ols.length;i++){
+                if(roll>=uls[i].offsetTop){
+                    for(var j =0;j<ols.length;j++){
+                        ols[j].className = '';
+                    }
+                    ols[i].className = 'cur';
+                }
+            }
+        }
+
+    }
+
+
+</script>
+</body>
+</html>

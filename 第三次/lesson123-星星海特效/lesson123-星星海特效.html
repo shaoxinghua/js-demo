@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>星星海特效</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: #000000;
+        }
+        span{
+            width: 30px;
+            height: 30px;
+            background: url("star.png") no-repeat 0 0;
+            background-size: 30px 30px;
+            position: absolute;
+            /*left: 20px;*/
+            /*top: 20px;*/
+            animation: flash 1s infinite alternate;
+            transition: all 1s;
+        }
+        @keyframes flash {
+            0%{
+                opacity: 0;
+            }
+            100%{
+                opacity: 1;
+            }
+        }
+        span:hover{
+            transform: scale(3) rotate(180deg) !important;
+        }
+    </style>
+</head>
+<body>
+<!--<span></span>-->
+</body>
+<script>
+    for(var i= 0;i<150;i++){
+        var span = document.createElement('span');
+        var l = Math.random()*window.innerWidth;
+        var t = Math.random()*window.innerHeight;
+        var s = Math.random()*1.5;
+        span.style.left = l + 'px';
+        span.style.top = t + 'px';
+        span.style.transform = 'scale('+s+')';
+        span.style.animationDelay = s+'s';
+        document.body.appendChild(span);
+
+    }
+</script>
+</html>

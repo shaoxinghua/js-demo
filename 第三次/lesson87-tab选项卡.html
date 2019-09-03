@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tab选项卡</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
+    <style>
+        a{
+            text-decoration: none;
+            color: #000;
+        }
+        li:hover,li a:hover{
+            color: red;
+        }
+
+        .box{
+            width: 500px;
+            height: 120px;
+            border: 1px solid #cccccc;
+            margin: 100px auto;
+            position: relative;
+        }
+        .bar{
+            width: 500px;
+            height: 30px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #eee;
+
+        }
+        .bar li{
+            width: 100px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            border-bottom: 1px solid #cccccc;
+        }
+
+       .bar .red{
+            background-color: #fff;
+           border-left: 1px solid #cccccc;
+           border-right: 1px solid #cccccc;
+            border-bottom: none;
+           box-sizing: border-box;
+        }
+       .bar li:nth-child(1).red{
+           border-left: none;
+       }
+        .bar li:nth-child(5).red{
+            border-right: none;
+        }
+
+        .con{
+            position: absolute;
+            left: 0;
+            top: 30px;
+            display: none;
+        }
+        .con ul{
+            width: 500px;
+            height: 90px;
+            display: flex;
+            justify-content: space-around;
+            align-content: center;
+            flex-wrap: wrap;
+        }
+        .con ul li{
+            width: 200px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+<div class="box">
+    <ul class="bar">
+        <li class="red">公告</li>
+        <li>规则</li>
+        <li>论坛</li>
+        <li>安全</li>
+        <li>公益</li>
+    </ul>
+    <div class="con" style="display: block">
+        <ul>
+        <li><a href="#">数据七夕:金牛爱送玫瑰</a></li>
+        <li><a href="#"> 阿里打造"互联网监管"</a></li>
+        <li><a href="#">10万家店60万新品</a></li>
+        <li><a href="#">全球最大网上时装周</a></li>
+        </ul>
+
+    </div>
+    <div class="con">
+        <ul>
+            <li>
+                <a href="#">“全额返现”要管控啦</a>
+            </li>
+            <li>
+                <a href="#">淘宝新规发布汇总(7月)</a>
+            </li>
+            <li>
+                <a href="#">炒信规则调整意见反馈</a>
+            </li>
+            <li>
+                <a href="#">质量相关规则近期变更</a>
+            </li>
+        </ul>
+
+    </div>
+    <div class="con">
+        <ul>
+            <li>
+                <a href="#">阿里建商家全链路服务</a>
+            </li>
+            <li>
+                <a href="#">个性化的消费时代来临</a>
+            </li>
+            <li>
+                <a href="#">跨境贸易是中小企业机</a>
+            </li>
+            <li>
+                <a href="#">美妆行业虚假信息管控</a>
+            </li>
+        </ul>
+
+    </div>
+    <div class="con">
+        <ul>
+            <li>
+                <a href="#">接次文件，毁了一家店</a>
+            </li>
+            <li>
+                <a href="#">账号安全神器阿里钱盾</a>
+            </li>
+            <li>
+                <a href="#">新版阿里110上线了</a>
+            </li>
+            <li>
+                <a href="#">卖家学违禁避免被处罚</a>
+            </li>
+        </ul>
+
+    </div>
+    <div class="con">
+        <ul>
+            <li>
+                <a href="#">为了公益high起来</a>
+            </li>
+            <li>
+                <a href="#">魔豆妈妈在线申请</a>
+            </li>
+        </ul>
+
+    </div>
+</div>
+<script>
+    var bar = document.getElementsByClassName('bar')[0];
+    var ls = bar.children;
+    var cons = document.getElementsByClassName('con');
+
+    
+    for(var i = 0;i<ls.length;i++){
+        (function (i) {
+            ls[i].onmouseover = function () {
+                for(var j =0;j<ls.length;j++){
+                    ls[j].className= '';
+                    cons[j].style.display = 'none';
+                }
+                this.className = 'red';
+                cons[i].style.display = 'block';
+            }
+        })(i);
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>音乐导航</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+            color: #000000;
+            font-size: 12px;
+        }
+        ul{
+            width: 900px;
+            height: 40px;
+            margin: 100px auto;
+            border: 1px solid #ccc;
+        }
+        ul li{
+            width: 100px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            float: left;
+            border-right: 1px dashed #ccc;
+            box-sizing: border-box;
+            background: url("images/_r1_c1.png") no-repeat 0 0;
+            position: relative;
+            overflow: hidden;
+        }
+        ul li:last-child{
+            border-right: none;
+        }
+        span{
+            width: 99px;
+            height: 40px;
+            background-color: skyblue;
+            position: absolute;
+            left: 0;
+            top: 40px;
+            z-index: -1;
+            /*display: none;*/
+        }
+
+    </style>
+    <script src="../MyFunc.js"></script>
+</head>
+<body>
+<ul>
+    <li><a href="#">首页</a><span></span>
+        <audio src="source/a1.mp3"></audio>
+    </li>
+    <li><a href="#">新头条</a><span></span>
+        <audio src="source/a2.mp3"></audio>
+    </li>
+    <li><a href="#">电视剧</a><span></span>
+        <audio src="source/a3.mp3"></audio>
+    </li>
+    <li><a href="#">新电影</a><span></span>
+        <audio src="source/a4.mp3"></audio>
+    </li>
+    <li><a href="#">小游戏</a><span></span>
+        <audio src="source/a5.mp3"></audio>
+    </li>
+    <li><a href="#">小说汇</a><span></span>
+        <audio src="source/a6.mp3"></audio>
+    </li>
+    <li><a href="#">旅游假</a><span></span>
+        <audio src="source/a7.mp3"></audio>
+    </li>
+    <li><a href="#">正品购</a><span></span>
+        <audio src="source/a8.mp3"></audio>
+    </li>
+    <li><a href="#">今日团</a><span></span>
+        <audio src="source/a9.mp3"></audio>
+    </li>
+</ul>
+
+<script>
+    var ul = document.getElementsByTagName('ul')[0];
+    var allis = ul.children;
+    for(var i =0;i<allis.length;i++){
+        allis[i].style.backgroundPosition = '0 '+(-i*40)+'px';
+
+        allis[i].onmouseover = function () {
+            buffer(this.children[1],{'top':0});
+
+            console.log(this.children[2]);
+            this.children[2].play();
+            this.children[2].currentTime = 0;
+        }
+        allis[i].onmouseout = function () {
+            buffer(this.children[1],{'top':40});
+        }
+    }
+
+    window.onkeydown = function (ev) {
+        var e = window.e || ev;
+      var c = e.keyCode-49;
+
+      buffer(allis[c].children[1],{'top':0},function () {
+          buffer(allis[c].children[1],{'top':40});
+      });
+
+        allis[c].children[2].play();
+        allis[c].children[2].currentTime = 0;
+
+    }
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css属性样式</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        ul{
+            width: 300px;
+            margin: 50px;
+            padding: 20px;
+            border: 1px solid #000;
+        }
+    </style>
+    <script src="jquery-1.12.4.js"></script>
+</head>
+<body>
+<button>全选</button>
+<button>反选</button>
+<button>全不选</button>
+<ul>
+    <li><input type="checkbox">我是第1个</li>
+    <li><input type="checkbox">我是第2个</li>
+    <li><input type="checkbox">我是第3个</li>
+    <li><input type="checkbox">我是第4个</li>
+    <li><input type="checkbox">我是第5个</li>
+    <li><input type="checkbox">我是第6个</li>
+    <li><input type="checkbox">我是第7个</li>
+    <li><input type="checkbox">我是第8个</li>
+    <li><input type="checkbox">我是第9个</li>
+    <li><input type="checkbox">我是第10个</li>
+</ul>
+<script>
+    $(function () {
+        $('button:first').click(
+            function () {
+                // alert(0);
+                // $(':checkbox').attr('checked','checked');
+                $(':checkbox').prop('checked','true');
+            }
+        )
+        $('button:last').click(
+            function () {
+                // alert(0);
+                // $(':checkbox').removeAttr('checked');
+                $(':checkbox').removeProp('checked');
+            }
+        )
+        $('button:nth-child(2)').click(
+            function () {
+                // alert(0);
+                var result = $(':checked');
+                $(':checkbox').prop('checked','true');
+                result.removeProp('checked');
+                // $(':checkbox').prop('checked','false');
+            }
+        )
+
+    })
+</script>
+</body>
+</html>

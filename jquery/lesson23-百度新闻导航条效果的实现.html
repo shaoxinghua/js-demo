@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>百度新闻</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        a{
+            text-decoration: none;
+            color: #fff;
+        }
+        .box{
+            width: 100%;
+            height: 40px;
+            background-color: darkblue;
+            font-weight: 700;
+            line-height: 40px;
+            margin-top: 100px;
+
+        }
+        .center{
+            width: 900px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+
+        }
+        a{
+            width: 60px;
+            height: 40px;
+            display: inline-block;
+            /*background-color: pink;*/
+            text-align: center;
+            position: relative;
+            float: left;
+            z-index: 2;
+        }
+        .slide{
+            width: 60px;
+            height: 40px;
+            background-color: red;
+            position: absolute;
+            left: -60px;
+            top: 0;
+        }
+    </style>
+    <script src="jquery-1.12.4.js"></script>
+</head>
+<body>
+<div class="box">
+    <div class="center">
+        <a href="#">国内</a>
+        <a href="#">国际</a>
+        <a href="#">军事</a>
+        <a href="#">财经</a>
+        <a href="#">娱乐</a>
+        <a href="#">体育</a>
+        <a href="#">科技</a>
+        <a href="#">游戏</a>
+        <a href="#">女人</a>
+        <a href="#">汽车</a>
+        <a href="#">房产</a>
+        <div class="slide"></div>
+    </div>
+</div>
+<script>
+    $(function () {
+        var l;
+        $('.box a').mouseenter(function () {
+            l = $(this).index()*(60)+'px';
+            $('.slide').stop().animate({'left':l},300);
+        });
+        $('.box a').mouseleave(function () {
+            $('.slide').stop().animate({'left':'-60px'},300);
+        });
+    })
+</script>
+</body>
+</html>

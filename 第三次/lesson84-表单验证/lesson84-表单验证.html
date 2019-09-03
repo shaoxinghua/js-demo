@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单验证</title>
+    <style>
+        input{
+            font-size: 12px;
+            outline: none;
+        }
+        span{
+            font-size: 12px;
+            color: #ccc;
+        }
+        .error{
+            width: 20px;
+            height: 20px;
+            background: url("images/error.png") no-repeat 0 0;
+            background-size: 15px 15px;
+            padding-left: 20px;
+            color: #f00;
+        }
+        .right{
+            width: 20px;
+            height: 20px;
+            background: url("images/right.png") no-repeat 0 0;
+            background-size: 15px 15px;
+            padding-left: 20px;
+            color: #0f0;
+        }
+    </style>
+</head>
+<body>
+您的成绩：<input type="text" placeholder="请输入分数">
+<span >请输入您的成绩！</span>
+<script>
+    var input = document.getElementsByTagName('input')[0];
+    var span = document.getElementsByTagName('span')[0];
+
+    input.onblur = function (ev) {
+        if(!input.value){
+            span.className = '';
+            span.innerText = '请输入您的成绩！'
+            input.style.border = '1px solid #00f';
+        }else if(input.value>=0&&input.value<=100){
+            span.className = 'right';
+            span.innerText = '您输入的成绩正确！'
+            input.style.border = '1px solid green';
+        }else {
+            span.className = 'error';
+            span.innerText = '您输入的成绩错误！'
+            input.style.border = '1px solid red';
+        }
+    }
+    input.onfocus = function (ev) {
+        input.value = '';
+        span.className = '';
+        span.innerText = '请输入您的成绩！'
+        input.style.border = '1px solid #005';
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jquery选择器</title>
+    <script src="jquery-1.12.4.js"></script>
+</head>
+<body>
+<div class="one">
+    <span>span1</span>
+    <p class="p1">我是第1个p</p>
+    <span class="sp2">span2</span>
+    <p>我是第2个p</p>
+    <p>我是第3个p <span></span> </p>
+    <p>我是第4个p</p>
+    <p>我是第5个p</p>
+    <p>我是第6个p</p>
+    <p>我是第7个p</p>
+    <p>我是第8个p</p>
+    <div class="two">
+        <span>span3</span>
+        <p>我是two第1个p</p>
+        <p>我是two第2个p</p>
+        <p>我是two第3个p</p>
+        <p></p>
+    </div>
+</div>
+
+
+<script>
+$(function () {
+    // 层级选择器
+    // console.log($('div+p'));
+    // $('.p1+span').css({'color':'red'});
+    // console.log($('.p1+span'));
+    // $('.p1~p').css({'color':'blue'});
+
+    // 基本筛选器
+    // $('p:first').css({'color':'red'});
+    // $('p:last').css({'color':'red'});
+    // $('.one p:last').css({'color':'red'});
+    // $(".one p:not(.p1)").css({'color':'red'});
+    // $(".one p:even").css({'color':'red'});
+    // $(".one p:odd").css({'color':'red'});
+    // $(".one p:eq(3)").css({'color':'red'});
+    // $(".one p:gt(3)").css({'color':'red'});
+    // $(".one p:lt(3)").css({'color':'red'});
+    // $(".one p:first-of-type").css({'color':'red'});
+    // $(".one p:last-of-type").css({'color':'red'});
+
+   // 内容选择器
+   //  $('p:contains(3)').css({"color":'red'});
+
+    // $('p:empty').css({'width':'300px','height':'200px','background-color':'red'});
+    // $('p:parent').css({'width':'150px','height':'30px','background-color':'red'});
+    $('p:has(span)').css({'width':'150px','height':'30px','background-color':'red'});
+
+})
+</script>
+</body>
+</html>

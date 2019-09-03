@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>简化版相册</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+     h3{
+         color: orangered;
+         line-height: 50px;
+         margin-left: 20px;
+     }
+        .big{
+            width: 400px;
+            margin-left: 20px;
+        }
+        ul{
+            width: 400px;
+            margin-left: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        ul li{
+            list-style: none;
+            width: 75px;
+            height: 55px;
+        }
+        ul li img{
+            width: 75px;
+            height: 55px;
+        }
+
+    </style>
+</head>
+<body>
+<h3>蒲公英</h3>
+<img  class="big" src="img/1.jpg" alt="">
+<ul>
+    <li><a href="#"><img  class="small" src="img/1.jpg" alt="蒲公英"></a></li>
+    <li><a href="#"><img  class="small" src="img/2.jpg" alt="热气球"></a></li>
+    <li><a href="#"><img  class="small" src="img/3.jpg" alt="小房子"></a></li>
+    <li><a href="#"><img  class="small" src="img/4.jpg" alt="风景"></a></li>
+    <li><a href="#"><img  class="small" src="img/5.jpg" alt="公路"></a></li>
+</ul>
+<script>
+    var allis = document.getElementsByTagName('li');
+    var h3 = document.getElementsByTagName('h3')[0];
+    var big =document.getElementsByClassName('big')[0];
+    var smalls = document.getElementsByClassName('small');
+    for(var i =0;i<allis.length;i++){
+        (function (j) {
+            allis[j].onclick = function (ev) {
+
+                h3.innerText = smalls[j].alt;
+                big.src ="img/"+(j+1)+".jpg";
+            }
+        })(i)
+
+    }
+</script>
+</body>
+</html>

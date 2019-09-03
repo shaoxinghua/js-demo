@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>天猫弹性导航</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+            color: #000;
+        }
+        body{
+            background-color: pink;
+        }
+        .box{
+            width: 900px;
+            height: 63px;
+            background-color: #fff;
+           border-radius: 5px;
+            margin: 100px auto;
+            position: relative;
+            overflow: hidden;
+        }
+        span{
+            width: 88px;
+            height: 63px;
+            background: url("images/tMall.png") no-repeat 0 0;
+            position: absolute;
+            left: 0;
+            top: -2px;
+        }
+        ul{
+            width: 800px;
+            height: 63px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            position: relative;
+
+        }
+        ul li{
+            width: 88px;
+            height: 63px;
+            line-height: 63px;
+            text-align: center;
+        }
+        img{
+            position: absolute;
+            right: 0;
+            top: -19px;
+
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <span></span>
+    <ul>
+        <li><a href="#">双11狂欢</a></li>
+        <li><a href="#">服装会场</a></li>
+        <li><a href="#">数码家电</a></li>
+        <li><a href="#">家具建材</a></li>
+        <li><a href="#">母婴童装</a></li>
+        <li><a href="#">手机会场</a></li>
+        <li><a href="#">美妆会场</a></li>
+        <li><a href="#">进口会场</a></li>
+        <li><a href="#">飞猪旅行</a></li>
+    </ul>
+    <img src="images/doubleOne.png" alt="">
+</div>
+<script>
+    var spa = document.getElementsByTagName('span')[0];
+    var ls = document.getElementsByTagName('li');
+    var beginX =0;
+    for(var i = 0;i<ls.length;i++){
+        ls[i].onmouseover = function (ev) {
+            end = this.offsetLeft;
+        }
+        ls[i].onmousedown =function (ev) {
+            beginX = this.offsetLeft;
+        }
+        ls[i].onmouseout = function (ev) {
+            end = beginX;
+        }
+    }
+
+    var begin =0,end = 0;
+    setInterval(function () {
+        begin += (end-begin)*0.2;
+        spa.style.left = begin + 'px';
+
+    })
+</script>
+</body>
+</html>

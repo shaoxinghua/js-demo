@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>顶部下滑广告效果</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        img{
+            width: 100%;
+        }
+        img:first-child{
+            height: 300px;
+            margin-top: -400px;
+        }
+    </style>
+    <script src="../jquery-1.12.4.js"></script>
+</head>
+<body>
+<img src="1.jpg" alt="">
+<img src="fanke.png" alt="">
+<script>
+    $(function () {
+        $('img').eq(0).animate({'margin-top':'0'},2000,function () {
+            $(this).delay(2000).animate({'margin-top':'-400px'},1000);
+        })
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>放假倒计时</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            color: #ff0000;
+            font-size: 50px;
+            text-align: center;
+            margin-top: 100px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    距离放假还有<span class="d"></span>天<span class="h"></span>小时<span class="m"></span>分<span class="s"></span>秒
+</div>
+<script>
+    var d = document.getElementsByClassName('d')[0];
+    var h = document.getElementsByClassName('h')[0];
+    var m = document.getElementsByClassName('m')[0];
+    var s = document.getElementsByClassName('s')[0];
+
+    function autotime() {
+        var ftime = new Date('2019/6/8 10:00:00');
+        var time = new Date();
+        var t=ftime.getTime()-time.getTime();
+        d.innerText =parseInt(t/(24*60*60*1000));
+
+        t = t%(24*60*60*1000);
+
+        h.innerText = parseInt(t/(60*60*1000));
+
+        t = t%(60*60*1000);
+
+        m.innerText = parseInt(t/(60*1000));
+
+        t = t%(60*1000);
+
+        s.innerText = parseInt(t/1000);
+    }
+    autotime();
+    setInterval(autotime,1000);
+
+</script>
+</body>
+</html>

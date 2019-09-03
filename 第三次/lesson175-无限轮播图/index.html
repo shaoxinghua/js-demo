@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>无限轮播图</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .box{
+            width: 750px;
+            height: 320px;
+            padding: 10px;
+            border: 1px solid #cccccc;
+            margin: 100px auto;
+            position: relative;
+
+        }
+
+        .top{
+            width:750px;
+            height: 320px;
+            overflow: hidden;
+            position: relative;
+        }
+        .box .top .pic{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 3750px;
+            height: 320px;
+        }
+        .box .top .pic li{
+            float: left;
+        }
+        .con{
+            position: absolute;
+            right: 10px;
+            bottom: 15px;
+        }
+        .con li{
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #cccccc;
+            float: left;
+            margin-left: 5px;
+        }
+        .con .cur{
+            background-color: orangered;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="top">
+        <ul class="pic">
+            <li><img src="images/pic01.jpg" alt=""></li>
+            <li><img src="images/pic02.jpg" alt=""></li>
+            <li> <img src="images/pic03.jpg" alt=""></li>
+            <li><img src="images/pic04.jpg" alt=""></li>
+            <li> <img src="images/pic05.jpg" alt=""></li>
+        </ul>
+    </div>
+
+    <ul class="con">
+        <li class="cur"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<script>
+    var pic = document.getElementsByClassName('pic')[0];
+    var pls = pic.children;
+    var con = document.getElementsByClassName('con')[0];
+    var cls = con.children;
+    var c = 0;
+    var begin = 0;
+
+        function autorun() {
+            c++;
+            begin += -750;
+            if(begin == -3750){
+                begin =0;
+            }
+            pic.style.left = begin + 'px';
+
+            for (var i =0;i<cls.length;i++){
+                cls[i].className = '';
+            }
+
+            if(c==5){
+                c=0;
+            }
+            cls[c].className = 'cur';
+        }
+
+    var timer = setInterval(autorun,1000);
+    
+    for(var i =0;i<cls.length;i++){
+        cls[i].num = i;
+        cls[i].onmouseover = function () {
+            clearInterval(timer);
+            c = this.num;
+            for (var i =0;i<cls.length;i++){
+                cls[i].className = '';
+            }
+            this.className = 'cur';
+            pic.style.left = -750*c +'px';
+        }
+
+        cls[i].onmouseout = function () {
+            timer = setInterval(autorun,1000);
+        }
+    }
+
+
+
+
+</script>
+</body>
+</html>

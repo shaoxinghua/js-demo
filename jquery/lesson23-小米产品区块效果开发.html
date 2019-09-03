@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>小米产品区块效果开发</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 234px;
+            height: 300px;
+            border: 1px solid #000;
+            box-shadow: 0 0 5px #cccccc;
+            margin: 100px 30px;
+            position: relative;
+            overflow: hidden;
+            float: left;
+        }
+        .bot{
+            width: 234px;
+            height: 76px;
+            background-color: orangered;
+            position: absolute;
+            left: 0;
+            top: 300px;
+        }
+    </style>
+    <script src="jquery-1.12.4.js"></script>
+</head>
+<body>
+<div class="box">
+    <div class="bot"></div>
+</div>
+<div class="box">
+    <div class="bot"></div>
+</div>
+<div class="box">
+    <div class="bot"></div>
+</div>
+
+<script>
+    $(function () {
+        $('.box').mouseenter(function () {
+            $(this).stop().animate({'top':'-5px'},600);
+            $(this).find('.bot').stop().animate({'top':'224px','opacity':1},600);
+        })
+        $('.box').mouseleave(function () {
+            $(this).stop().animate({'top':'0'},600);
+            $(this).find('.bot').stop().animate({'top':'300px','opacity':0},600);
+        })
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>照片墙特效</title>
+    <style>
+       *{
+           margin: 0;
+           padding: 0;
+       }
+       html,body,ul{
+           width: 100%;
+           height: 100%;
+       }
+       ul{
+           position: relative;
+       }
+       ul li{
+           width: 250px;
+           height: 360px;
+           list-style: none;
+           position: absolute;
+           box-shadow: 0 0 5px;
+           transition: all 1s;
+       }
+
+        .cur{
+            transform:  rotate(0deg) scale(1.5) !important;
+            left: 50% !important;
+            top: 50% !important;
+            margin-left: -125px!important;
+            margin-top: -180px!important;
+            z-index: 99;
+        }
+
+    </style>
+</head>
+<body>
+<ul>
+<li><img src="images/pic1.jpg" alt=""></li>
+<li><img src="images/pic2.jpg" alt=""></li>
+<li><img src="images/pic3.jpg" alt=""></li>
+<li><img src="images/pic4.jpg" alt=""></li>
+<li><img src="images/pic5.jpg" alt=""></li>
+<li><img src="images/pic6.jpg" alt=""></li>
+<li><img src="images/pic7.jpg" alt=""></li>
+<li><img src="images/pic8.jpg" alt=""></li>
+<li><img src="images/pic9.jpg" alt=""></li>
+<li><img src="images/pic10.jpg" alt=""></li>
+</ul>
+
+
+<script>
+    var ls= document.getElementsByTagName('li');
+    for(var i = 0;i<ls.length;i++){
+        var w = Math.random()*(document.documentElement.clientWidth-250);
+        var h = Math.random()*(document.documentElement.clientHeight-360);
+        var r =  Math.random()*360;
+        ls[i].style.left = parseInt(w) + 'px';
+        ls[i].style.top = parseInt(h) + 'px';
+        ls[i].style.transform = 'rotate('+r+'deg)';
+
+        ls[i].onclick = function (ev) {
+            for(var j = 0;j<10;j++){
+                ls[j].className = '';
+            }
+            this.className = 'cur';
+        }
+
+    }
+
+
+
+
+</script>
+</body>
+</html>

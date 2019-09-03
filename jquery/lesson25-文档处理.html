@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文档处理</title>
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+        body{
+            padding: 100px;
+        }
+        div{
+            border: 1px solid #000;
+            width: 300px;
+            padding: 20px;
+        }
+    </style>
+    <script src="jquery-1.12.4.js"></script>
+</head>
+<body>
+<button>点我</button>
+<h1>hello world!</h1>
+<div>
+    <p>我是p标签</p>
+    <p>我是p标签</p>
+    <p>我是p标签</p>
+    <p>我是p标签</p>
+    <p>我是p标签</p>
+    <p>我是p标签</p>
+    <p>我是p标签</p>
+    <p>我是p标签</p>
+    <p>我是p标签</p>
+    <p>我是p标签</p>
+</div>
+<script>
+    $(function () {
+        $('button').click(function () {
+            // $('div').append('<p>我是新增加的p</p>');
+            // $('div').append($('h1'));
+
+            // $('h1').appendTo($('div'));
+
+            // $('div').prepend('<p>我是新增加的p</p>');
+            // $('h1').prependTo($('div'));
+
+            // $('div p').eq(2).after($('h1'));
+            // $('div p').eq(2).before($('h1'));
+
+            // $('h1').insertAfter($('div p:nth-child(3)'));
+            // $('h1').insertBefore($('div p:nth-child(3)'));
+
+            // $('p').wrap('<ul></ul>');
+            // $('p').wrap('<ul></ul>');
+            // $('p').unwrap('<ul></ul>');
+            // $('p').wrapAll('<ul></ul>');
+            // $('p').wrapInner('<li></li>');
+
+            // $('p:first').replaceWith($('h1'));
+            // $('p:first').replaceAll($('h1'));
+
+
+            // $('div').empty();
+            // $('div').remove();
+            // $('div').detach();
+            // $('h1').clone();
+            $("button").click(function(){
+                $('h1').clone(true).insertAfter($('p'));
+            });
+
+
+
+        })
+    })
+</script>
+</body>
+</html>

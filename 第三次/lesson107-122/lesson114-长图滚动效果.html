@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>长图滚动效果</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 750px;
+            height: 300px;
+            border: 1px solid #ccc;
+            overflow: hidden;
+            margin: 100px auto;
+            position: relative;
+        }
+        .t,.b{
+            width: 100%;
+            height: 150px;
+        }
+        img{
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .t{
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 2;
+        }
+        .b{
+            position: absolute;
+            left: 0;
+            top: 50%;
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="t"></div>
+    <div class="b"></div>
+    <img src="images/timg.jpg" alt="">
+</div>
+<script>
+    var box = document.getElementsByClassName('box')[0];
+    var img = document.getElementsByTagName('img')[0];
+    var t = document.getElementsByClassName('t')[0];
+    var b = document.getElementsByClassName('b')[0];
+    var speed = 5;
+    var timer;
+    // box.onmouseover = function () {
+    //    timer = setInterval(function () {
+    //          var old_top = img.offsetTop;
+    //          var new_top = old_top-speed;
+    //          if(new_top<=-2566){
+    //              new_top = -2566;
+    //              speed = -1*speed;
+    //          }
+    //          if(new_top>=0){
+    //              new_top =0;
+    //              speed = -1*speed;
+    //          }
+    //          img.style.top = new_top + 'px';
+    //      },10);
+    // }
+
+
+    t.onmouseover = function (){
+        timer = setInterval(function () {
+            var old_top = img.offsetTop;
+            var new_top = old_top-speed;
+            if(new_top<=-2566){
+                new_top = -2566;
+                clearInterval(timer);
+            }
+            img.style.top = new_top + 'px';
+        },10);
+    };
+    b.onmouseover = function (){
+        timer = setInterval(function () {
+            var old_top = img.offsetTop;
+            var new_top = old_top+speed;
+            if(new_top>=0){
+                new_top = 0;
+                clearInterval(timer);
+            }
+            img.style.top = new_top + 'px';
+        },10);
+    };
+
+    box.onmouseout = function () {
+        clearInterval(timer);
+    }
+</script>
+</body>
+</html>

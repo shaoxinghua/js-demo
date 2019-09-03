@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>旋转木马特效</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        body{
+            background-color: #000;
+        }
+        .slider{
+            width: 1200px;
+            height: 460px;
+            margin: 100px auto;
+            position: relative;
+        }
+        .slider li{
+            position: absolute;
+            left: 200px;
+            top: 0;
+        }
+        .slider li img{
+            width: 100%;
+            height: 100%;
+        }
+        .slider-ctr{
+            opacity: 0;
+        }
+        .slider:hover .slider-ctr{
+            opacity: 1;
+        }
+        .slider-prev,.slider-next{
+            width: 76px;
+            height: 112px;
+            position: absolute;
+            top:50%;
+            margin-top: -56px;
+            z-index: 5;
+        }
+        .slider-prev{
+            background:url("images/prev.png") no-repeat 0 0;
+            left: 0;
+        }
+        .slider-next{
+            background: url("images/next.png") no-repeat 0 0;
+            right: 0;
+        }
+
+    </style>
+    <script src="../MyFunc.js"></script>
+</head>
+<body>
+<div class="slider">
+    <ul class="slider-main">
+        <li><img src="images/slidepic1.jpg" alt=""></li>
+        <li><img src="images/slidepic2.jpg" alt=""></li>
+        <li><img src="images/slidepic3.jpg" alt=""></li>
+        <li><img src="images/slidepic4.jpg" alt=""></li>
+        <li><img src="images/slidepic5.jpg" alt=""></li>
+    </ul>
+    <div class="slider-ctr">
+        <span class="slider-prev"></span>
+        <span class="slider-next"></span>
+    </div>
+</div>
+<script>
+    var slider = document.getElementsByClassName('slider')[0];
+    var slider_m = document.getElementsByClassName('slider-main')[0];
+    var allis = slider_m.children;
+    var ctr = document.getElementsByClassName('slider-ctr')[0];
+
+    var json = [
+        {   //  1
+            width:400,
+            top:20,
+            left:50,
+            opacity:0.2,
+            zIndex:2
+        },
+        {  // 2
+            width:600,
+            top:70,
+            left:0,
+            opacity:0.8,
+            zIndex:3
+        },
+        {   // 3
+            width:800,
+            top:100,
+            left:200,
+            opacity:1,
+            zIndex:4
+        },
+        {  // 4
+            width:600,
+            top:70,
+            left:600,
+            opacity:0.8,
+            zIndex:3
+        },
+        {   //5
+            width:400,
+            top:20,
+            left:750,
+            opacity:0.2,
+            zIndex:2
+        }
+    ];
+
+    for(var i =0;i<json.length;i++){
+        buffer(allis[i],json[i]);
+    }
+
+    for(var j =0;j<ctr.children.length;j++){
+        var item = ctr.children[j];
+        item.onclick = function () {
+            if(this.className ==='slider-prev'){
+                // 左边按钮
+               json.push(json.shift()) ;
+            }else{
+                // 右边按钮
+                json.unshift(json.pop());
+            }
+            for(var i =0;i<json.length;i++){
+                buffer(allis[i],json[i]);
+            }
+        }
+    }
+
+
+
+</script>
+
+</body>
+</html>
